@@ -45,8 +45,7 @@ module.exports = function (app) { // get workouts
     app.post("/api/workouts", ({
         body
     }, res) => {
-        // console.log("WORKOUT TO BE ADDED");
-        // console.log(body);
+        // console.log("adding your workouts");
 
         db.Workout.create(body).then((dbWorkout => {
             res.json(dbWorkout);

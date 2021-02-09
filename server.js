@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const User = require("./models/user");
+const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,13 +15,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dbExample", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
 
-// require("./routes/api-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // We need a route for the homepage
 app.get("/", (req, res) => {
