@@ -5,8 +5,7 @@ module.exports = function (app) { // get workouts
     app.get("/api/workouts", (req, res) => {
 
         db.Workout.find({}).then(dbWorkout => {
-            // console.log("ALL WORKOUTS");
-            // console.log(dbWorkout);
+            // console.log("these are your workouts");
             dbWorkout.forEach(workout => {
                 var total = 0;
                 workout.exercises.forEach(e => {
