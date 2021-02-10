@@ -21,7 +21,14 @@ async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
+    addButton.disabled = true
+    completeButton.disabled = true
+
     workout = await API.createWorkout()
+
+    addButton.disabled = false
+    completeButton.disabled = false
+
     console.log(workout)
   }
   if (workout) {
